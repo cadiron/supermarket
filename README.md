@@ -28,7 +28,7 @@ public:
 	void ShowMe();
 };
 
-/*
+
 class Supermarkets
 {
 private:
@@ -37,31 +37,44 @@ public:
 	void Append();
 	void Delete();
 	void Query();
-};*/
+};
 
-void Goods::Sale()
+Goods::Goods(){}
+
+Goods::~Goods(){}
+
+void Goods::Add()//商品上架操作
 {
+	cout<<"########请输入待上架商品的信息#######"<<endl;
+	cout<<"####请输入商品的名称：";
+	cin>>Name;
+	cout<<"####请输入商品数量：";
+	cin>>Number
+	cout<<"####请输入商品价格：";
+	cin>>Price;
+}
+
+int Goods::Sale()//销售商品，余额不足时给予提示
+{
+
 	int num;//purchase quantity
-	cout<<"please input the purchase quantity";
+	cout<<"输入要购买商品的数量：";
 	cin>>num;
 	if(num>Number)
-		cout<<"sorry,we don't have enough goods!";
-	else
+	{
+		cout<<"sorry，我们不够货啦！";
+		return 
+	}
+		else
 		Number-=num;
-}
 
-Good * Goods::Add()
-{	
-//要不要对超市进行操作？回答，给个指针试试
-	return *this;
 }
-
-void Goods::ShowMe()
+void Goods::ShowMe()//显示商品信息
 {
-	cout<<setw(6)<<Name;
-	cout<<setw(6)<<Price;
-	cout<<setw(6)<<Number;
+	cout<<"####商品的名称	商品数量	商品价格";
+	cout<<Name<<"	"<<Number<<"	  "<<Price<<endl;
 }
+
 
 int main()
 {
